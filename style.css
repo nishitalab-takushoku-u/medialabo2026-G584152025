@@ -1,0 +1,46 @@
+h1{
+    color: turquoise;
+    background: linear-gradient(to right, crimson, turquoise ) ;
+}
+
+h2{
+    text-decoration: underline crimson 3px;
+}
+
+.location{
+    background-color: rgb(95, 188, 213);
+    background: linear-gradient(to right, rgb(50, 159, 189), rgb(57, 201, 186)) ;
+}
+
+.special{
+    background-color: yellowgreen;
+    background: linear-gradient(to right, yellowgreen, rgb(57, 201, 186)) ;
+}
+.name {
+    font-size: 200%;
+}
+.group{
+    background-color: rgb(57, 201, 186);
+    border: 5px solid crimson;
+    padding: 10px;
+    margin: 30px 10px 30px 10px;
+}
+
+a:link {
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+a:visited{
+    color: gray;
+    text-decoration: underline;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+body{
+    color: rgb(43, 43, 43);
+    background-color: turquoise;
+}
