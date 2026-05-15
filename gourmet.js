@@ -19,7 +19,15 @@ function print(data) {
     console.log('サブジャンル: ' + x.sub_genre.name);
   }
 }
-
+function results() {
+    let i = document.querySelector('input[name="searchbar"]');
+    let searchbar = i.value;
+    let output = hit + "件がヒットしました.";
+    let p = document.querySelector('p#message');
+    p.textContent = output;
+}
+let search = document.querySelector('button#print');
+search.addEventListener('click', results);
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
 
