@@ -44,3 +44,7 @@ body{
     color: rgb(43, 43, 43);
     background-color: turquoise;
 }
+
+.bold{
+    font-weight: bold;
+}

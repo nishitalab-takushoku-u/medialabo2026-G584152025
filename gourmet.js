@@ -10,7 +10,7 @@ function print(data) {
 		num(0);
     console.log('店名:'+ x.name);
     console.log('キャッチコピー:' + x.catch);
-    console.log('アクセス:' + x.access);
+    console.log('アクセス:' + x.mobile_access);
     console.log('住所: ' + x.address);
     console.log('最寄駅: ' + x.station_name);
     console.log('予算: ' + x.budget.name);
@@ -22,7 +22,7 @@ function print(data) {
 function results() {
     let i = document.querySelector('input[name="searchbar"]');
     let searchbar = i.value;
-    let output = hit + "件がヒットしました.";
+    let output = "検索結果（"+ hit +"件）";
     let p = document.querySelector('p#message');
     p.textContent = output;
 }
@@ -30,7 +30,97 @@ let search = document.querySelector('button#print');
 search.addEventListener('click', results);
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  let toko = data.results;
 
+  let d = document.createElement('div');
+  d.setAttribute('id', 'result');
+  d.setAttribute('class', 'group');
+  let b = document.querySelector('body');
+  b.insertAdjacentElement('beforeend', d);
+
+  let nama = document.createElement('h2');
+  nama.setAttribute('class', 'name');
+  d.insertAdjacentElement('beforeend', nama);
+  nama.textContent = toko.shop[0].name;
+
+  let promo = document.createElement('p');
+  promo.setAttribute('class', 'special');
+  d.insertAdjacentElement('beforeend', promo);
+  promo.textContent = "★" + toko.shop[0].catch;
+
+  let foto = document.createElement('img');
+  foto.setAttribute('src','toko.shop[0].photo.pc.l');
+  d.insertAdjacentElement('beforeend', foto);
+
+
+  let text = document.createElement('p');
+  text.setAttribute('class', 'bold');
+  text.textContent = 'アクセス：';
+  d.insertAdjacentElement('beforeend', text);
+
+  let akses = document.createElement('p');
+  d.insertAdjacentElement('beforeend', akses);
+  akses.textContent = toko.shop[0].mobile_access;
+
+
+  text = document.createElement('p');
+  text.setAttribute('class', 'bold');
+  text.textContent = '住所: ';
+  d.insertAdjacentElement('beforeend', text);
+
+  let alamat = document.createElement('p');
+  d.insertAdjacentElement('beforeend', alamat);
+  alamat.textContent = toko.shop[0].address; 
+
+
+  text = document.createElement('p');
+  text.setAttribute('class', 'bold');
+  text.textContent = '最寄駅: ';
+  d.insertAdjacentElement('beforeend', text);
+
+  let eki = document.createElement('p');
+  d.insertAdjacentElement('beforeend', eki);
+  eki.textContent = toko.shop[0].station_name; 
+
+
+  text = document.createElement('p');
+  text.setAttribute('class', 'bold');
+  text.textContent = '予算: ';
+  d.insertAdjacentElement('beforeend', text);
+
+  let yosan = document.createElement('p');
+  d.insertAdjacentElement('beforeend', yosan);
+  yosan.textContent = toko.shop[0].budget.name; 
+
+
+  text = document.createElement('p');
+  text.setAttribute('class', 'bold');
+  text.textContent = '営業時間: ';
+  d.insertAdjacentElement('beforeend', text);
+
+  let buka = document.createElement('p');
+  d.insertAdjacentElement('beforeend', buka);
+  buka.textContent = toko.shop[0].open; 
+
+
+  text = document.createElement('p');
+  text.setAttribute('class', 'bold');
+  text.textContent = 'ジャンル: ';
+  d.insertAdjacentElement('beforeend', text);
+
+  let jenis = document.createElement('p');
+  d.insertAdjacentElement('beforeend', jenis);
+  jenis.textContent = toko.shop[0].genre.name; 
+
+
+  text = document.createElement('p');
+  text.setAttribute('class', 'bold');
+  text.textContent = 'サブジャンル: ';
+  d.insertAdjacentElement('beforeend', text);
+
+  let subjenis = document.createElement('p');
+  d.insertAdjacentElement('beforeend', subjenis);
+  subjenis.textContent = toko.shop[0].sub_genre.name; 
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
