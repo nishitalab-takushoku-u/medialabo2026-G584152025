@@ -1,33 +1,40 @@
 h1{
-    color: turquoise;
-    background: linear-gradient(to right, crimson, turquoise ) ;
+    color: #F5F5F3;
+    letter-spacing: 4px;
+    background: none;
 }
 
 h2{
-    text-decoration: underline crimson 3px;
+    text-decoration: none;
 }
 
 .location{
     background-color: rgb(95, 188, 213);
-    background: linear-gradient(to right, rgb(50, 159, 189), rgb(57, 201, 186)) ;
+    background: none;
 }
 
 .special{
-    background-color: yellowgreen;
-    background: linear-gradient(to right, yellowgreen, rgb(57, 201, 186)) ;
+    color: #D5B696; /* Champagne Gold */
+    letter-spacing: 4px;
+    font-size: 15px;
+    padding: 8px 24px;
+    border: 1px solid #3E3A34; 
+    display: inline-block;
+    
 }
 .name {
     font-size: 200%;
+    letter-spacing: 4px;
 }
 .group{
-    background-color: rgb(57, 201, 186);
-    border: 5px solid crimson;
-    padding: 10px;
+    background-color: #1C1B19;
+    border: 5px solid #3E3A34;
+    padding: 10px 10px 30px 10px;
     margin: 30px 10px 30px 10px;
 }
 
 a:link {
-    color: blueviolet;
+    color: #E8D3BC;
     text-decoration: underline;
 }
 
@@ -41,10 +48,27 @@ a:hover{
 }
 
 body{
-    color: rgb(43, 43, 43);
-    background-color: turquoise;
+    color: #F5F5F3;
+    background-color: #111111;
 }
 
 .bold{
     font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+
+.explanation{
+    height: 1px;
+    border: none;
+    background: linear-gradient(to right, #3E3A34, transparent);
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.photo {
+    width: 300px;
+    display: block;
+    margin-top: 10px;    
+    margin-bottom: 15px; 
 }

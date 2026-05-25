@@ -32,96 +32,108 @@ search.addEventListener('click', results);
 function printDom(data) {
   let toko = data.results;
 
-  let d = document.createElement('div');
-  d.setAttribute('id', 'result');
-  d.setAttribute('class', 'group');
-  let b = document.querySelector('body');
-  b.insertAdjacentElement('beforeend', d);
+  for (let y of toko.shop){
+    
+    let d = document.createElement('div');
+    d.setAttribute('id', 'result');
+    d.setAttribute('class', 'group');
+    let b = document.querySelector('body');
+    b.insertAdjacentElement('beforeend', d);
 
-  let nama = document.createElement('h2');
-  nama.setAttribute('class', 'name');
-  d.insertAdjacentElement('beforeend', nama);
-  nama.textContent = toko.shop[0].name;
+    let nama = document.createElement('h2');
+    nama.setAttribute('class', 'name');
+    d.insertAdjacentElement('beforeend', nama);
+    nama.textContent = y.name;
 
-  let promo = document.createElement('p');
-  promo.setAttribute('class', 'special');
-  d.insertAdjacentElement('beforeend', promo);
-  promo.textContent = "★" + toko.shop[0].catch;
+    let promo = document.createElement('p');
+    promo.setAttribute('class', 'special');
+    d.insertAdjacentElement('beforeend', promo);
+    promo.textContent = "★" + y.catch;
 
-  let foto = document.createElement('img');
-  foto.setAttribute('src','toko.shop[0].photo.pc.l');
-  d.insertAdjacentElement('beforeend', foto);
-
-
-  let text = document.createElement('p');
-  text.setAttribute('class', 'bold');
-  text.textContent = 'アクセス：';
-  d.insertAdjacentElement('beforeend', text);
-
-  let akses = document.createElement('p');
-  d.insertAdjacentElement('beforeend', akses);
-  akses.textContent = toko.shop[0].mobile_access;
+    let foto = document.createElement('img');
+    foto.setAttribute('class', 'photo');
+    foto.setAttribute('src',y.logo_image);
+    d.insertAdjacentElement('beforeend', foto);
 
 
-  text = document.createElement('p');
-  text.setAttribute('class', 'bold');
-  text.textContent = '住所: ';
-  d.insertAdjacentElement('beforeend', text);
+    let text = document.createElement('p');
+    text.setAttribute('class', 'bold');
+    text.textContent = 'アクセス：';
+    d.insertAdjacentElement('beforeend', text);
 
-  let alamat = document.createElement('p');
-  d.insertAdjacentElement('beforeend', alamat);
-  alamat.textContent = toko.shop[0].address; 
-
-
-  text = document.createElement('p');
-  text.setAttribute('class', 'bold');
-  text.textContent = '最寄駅: ';
-  d.insertAdjacentElement('beforeend', text);
-
-  let eki = document.createElement('p');
-  d.insertAdjacentElement('beforeend', eki);
-  eki.textContent = toko.shop[0].station_name; 
+    let akses = document.createElement('p');
+    d.insertAdjacentElement('beforeend', akses);
+    akses.setAttribute('class', 'explanation');
+    akses.textContent = y.mobile_access;
 
 
-  text = document.createElement('p');
-  text.setAttribute('class', 'bold');
-  text.textContent = '予算: ';
-  d.insertAdjacentElement('beforeend', text);
+    text = document.createElement('p');
+    text.setAttribute('class', 'bold');
+    text.textContent = '住所: ';
+    d.insertAdjacentElement('beforeend', text);
 
-  let yosan = document.createElement('p');
-  d.insertAdjacentElement('beforeend', yosan);
-  yosan.textContent = toko.shop[0].budget.name; 
-
-
-  text = document.createElement('p');
-  text.setAttribute('class', 'bold');
-  text.textContent = '営業時間: ';
-  d.insertAdjacentElement('beforeend', text);
-
-  let buka = document.createElement('p');
-  d.insertAdjacentElement('beforeend', buka);
-  buka.textContent = toko.shop[0].open; 
+    let alamat = document.createElement('p');
+    d.insertAdjacentElement('beforeend', alamat);
+    alamat.setAttribute('class', 'explanation');
+    alamat.textContent = y.address; 
 
 
-  text = document.createElement('p');
-  text.setAttribute('class', 'bold');
-  text.textContent = 'ジャンル: ';
-  d.insertAdjacentElement('beforeend', text);
+    text = document.createElement('p');
+    text.setAttribute('class', 'bold');
+    text.textContent = '最寄駅: ';
+    d.insertAdjacentElement('beforeend', text);
 
-  let jenis = document.createElement('p');
-  d.insertAdjacentElement('beforeend', jenis);
-  jenis.textContent = toko.shop[0].genre.name; 
+    let eki = document.createElement('p');
+    d.insertAdjacentElement('beforeend', eki);
+    eki.setAttribute('class', 'explanation');
+    eki.textContent = y.station_name; 
 
 
-  text = document.createElement('p');
-  text.setAttribute('class', 'bold');
-  text.textContent = 'サブジャンル: ';
-  d.insertAdjacentElement('beforeend', text);
+    text = document.createElement('p');
+    text.setAttribute('class', 'bold');
+    text.textContent = '予算: ';
+    d.insertAdjacentElement('beforeend', text);
 
-  let subjenis = document.createElement('p');
-  d.insertAdjacentElement('beforeend', subjenis);
-  subjenis.textContent = toko.shop[0].sub_genre.name; 
+    let yosan = document.createElement('p');
+    d.insertAdjacentElement('beforeend', yosan);
+    yosan.setAttribute('class', 'explanation');
+    yosan.textContent = y.budget.name; 
+
+
+    text = document.createElement('p');
+    text.setAttribute('class', 'bold');
+    text.textContent = '営業時間: ';
+    d.insertAdjacentElement('beforeend', text);
+
+    let buka = document.createElement('p');
+    d.insertAdjacentElement('beforeend', buka);
+    buka.setAttribute('class', 'explanation');
+    buka.textContent = y.open; 
+
+
+    text = document.createElement('p');
+    text.setAttribute('class', 'bold');
+    text.textContent = 'ジャンル: ';
+    d.insertAdjacentElement('beforeend', text);
+
+    let jenis = document.createElement('p');
+    d.insertAdjacentElement('beforeend', jenis);
+    jenis.setAttribute('class', 'explanation');
+    jenis.textContent = y.genre.name; 
+
+
+    text = document.createElement('p');
+    text.setAttribute('class', 'bold');
+    text.textContent = 'サブジャンル: ';
+    d.insertAdjacentElement('beforeend', text);
+
+    let subjenis = document.createElement('p');
+    d.insertAdjacentElement('beforeend', subjenis);
+    subjenis.setAttribute('class', 'explanation');
+    subjenis.textContent = y.sub_genre.name; 
+  }
 }
+  
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 
