@@ -19,17 +19,14 @@ function print(data) {
     console.log('サブジャンル: ' + x.sub_genre.name);
   }
 }
-function results() {
-    let i = document.querySelector('input[name="searchbar"]');
-    let searchbar = i.value;
-    let output = "検索結果（"+ hit +"件）";
-    let p = document.querySelector('p#message');
-    p.textContent = output;
-}
-let search = document.querySelector('button#print');
-search.addEventListener('click', results);
+
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  let oldResults = document.querySelectorAll('div.group');
+  for (let oldDiv of oldResults) {
+    oldDiv.remove();
+  }
+  
   let toko = data.results;
 
   for (let y of toko.shop){
@@ -41,9 +38,12 @@ function printDom(data) {
     b.insertAdjacentElement('beforeend', d);
 
     let nama = document.createElement('h2');
+    let link = document.createElement('a');
+    nama.insertAdjacentElement('beforeend', link);
+    link.setAttribute('href', y.urls.pc)
     nama.setAttribute('class', 'name');
     d.insertAdjacentElement('beforeend', nama);
-    nama.textContent = y.name;
+    link.textContent = y.name;
 
     let promo = document.createElement('p');
     promo.setAttribute('class', 'special');
@@ -52,7 +52,7 @@ function printDom(data) {
 
     let foto = document.createElement('img');
     foto.setAttribute('class', 'photo');
-    foto.setAttribute('src',y.logo_image);
+    foto.setAttribute('src',y.photo.pc.l);
     d.insertAdjacentElement('beforeend', foto);
 
 
@@ -135,19 +135,57 @@ function printDom(data) {
 }
   
 
+
+
+
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 
+let search = document.querySelector('button#print');
+search.addEventListener('click', sendRequest);
 
 
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
-
+  let i = document.querySelector('input[name="searchbar"]');
+  let searchbar = i.value;
+  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+ searchbar +'.json';
+  
+  axios.get(url)
+  .then(showResult)   
+  .catch(showError)   
+  .then(finish);
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
+  // サーバから送られてきたデータを出力
+    let data = resp.data;
 
+    // data が文字列型なら，オブジェクトに変換する
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
+
+    // data をコンソールに出力
+    let toko = data.results;
+    let hit = 0;
+    for(let z of toko.shop){
+      hit = hit + 1;
+    }
+    
+    
+    let output = "検索結果（"+ hit +"件）";
+    let p = document.querySelector('p.message');
+    p.textContent = output;
+    
+
+    
+    
+    printDom(data);
+
+    // data.x を出力
+    console.log(data);
 }
 
 // 課題6-1: 通信エラーが発生した時の処理

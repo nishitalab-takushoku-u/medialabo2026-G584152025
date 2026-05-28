@@ -1,24 +1,52 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 h1{
     color: #F5F5F3;
     letter-spacing: 4px;
     background: none;
+    font-size: 400%;
+    justify-content: center;
+    display: flex;
+}
+.box{
+    display: flex;
+    width: 100%;
+    max-width: none;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.searchbar {
+    font-size: 150%;
+    border: 5px;
+    color: #F5F5F3;
+    background-color: #1C1B19;
+    border: 1px solid;
+    border-color: #3E3A34;
+    border-radius: 5px;
 }
 
-h2{
-    text-decoration: none;
+.button{
+    font-size: 100%;
+    text-align: center;
+    border: 5px;
+    color: #F5F5F3;
+    background-color: #1C1B19;
+    border: 1px solid;
+    border-color: #3E3A34;
+    border-radius: 5px;
+    margin-left: 4px;
 }
 
-.location{
-    background-color: rgb(95, 188, 213);
-    background: none;
-}
 
 .special{
     color: #D5B696; /* Champagne Gold */
     letter-spacing: 4px;
-    font-size: 15px;
+    font-size: 125%;
+    font-weight: bold;
     padding: 8px 24px;
     border: 1px solid #3E3A34; 
+    border-radius: 2.5px;
     display: inline-block;
     
 }
@@ -30,21 +58,18 @@ h2{
     background-color: #1C1B19;
     border: 5px solid #3E3A34;
     padding: 10px 10px 30px 10px;
-    margin: 30px 10px 30px 10px;
+    margin: 20px 10px 30px 10px;
+    border-radius: 2.5px;
 }
 
 a:link {
-    color: #E8D3BC;
+    color: #F5F5F3;
     text-decoration: underline;
 }
 
 a:visited{
-    color: gray;
+    color: #F5F5F3;
     text-decoration: underline;
-}
-
-a:hover{
-    text-decoration: none;
 }
 
 body{
@@ -53,15 +78,18 @@ body{
 }
 
 .bold{
+    border: none;
+    background: linear-gradient(to right, #3E3A34, transparent);
+    font-size: 125%;
+    letter-spacing: 2px;
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 5px;
 }
 
 .explanation{
-    height: 1px;
-    border: none;
-    background: linear-gradient(to right, #3E3A34, transparent);
+    font-size: 100%;
+    letter-spacing: 1px;
     margin-top: 5px;
     margin-bottom: 10px;
 }
@@ -72,3 +100,12 @@ body{
     margin-top: 10px;    
     margin-bottom: 15px; 
 }
+
+.message {
+    font-size: 175%;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
