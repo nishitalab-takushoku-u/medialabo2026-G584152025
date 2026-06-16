@@ -31,7 +31,11 @@ function hantei() {
   // ここから: 正解判定する
   let result = document.querySelector('p#result');
   if ( kaisu === 3 ){ 
-    result.textContent = "まちがい．残念でした答えは"+ kotae +"です．";
+    if (guess === kotae){
+      result.textContent = "正解です．おめでとう!";
+    }else{
+      result.textContent = "まちがい．残念でした答えは"+ kotae +"です．";
+    }
   } 
   
   // 　　　　  正解/不正解のときのメッセージを表示する
